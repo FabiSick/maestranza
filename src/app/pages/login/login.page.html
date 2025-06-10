@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2 class="brand-title">Maestranza Unidos S.A</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <ion-item>
+      <ion-label position="stacked" class="input-label">Usuario</ion-label>
+      <ion-input formControlName="username" type="text" class="input-field"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked" class="input-label">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password" class="input-field"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">ENTRAR</ion-button>
+  </form>
+
+  <ion-text color="danger" *ngIf="errorMessage">
+    <p class="ion-padding">{{ errorMessage }}</p>
+  </ion-text>
+</ion-content>

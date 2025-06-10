@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Registro de Inventario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="actualizarInventario()">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Filtros -->
+  <ion-item>
+    <ion-label position="stacked">Buscar</ion-label>
+    <ion-input [(ngModel)]="filtro" (ionChange)="filtrarProductos()" placeholder="Nombre, código o ubicación"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Categoría</ion-label>
+    <ion-select [(ngModel)]="categoriaFiltro" (ionChange)="filtrarProductos()" interface="popover">
+      <ion-select-option value="">Todas</ion-select-option>
+      <ion-select-option value="Materia Prima">Materia Prima</ion-select-option>
+      <ion-select-option value="Herramientas">Herramientas</ion-select-option>
+      <ion-select-option value="Repuestos">Repuestos</ion-select-option>
+      <ion-select-option value="Producto Terminado">Producto Terminado</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Lista de productos -->
+  <ion-list>
+    <ion-item-sliding *ngFor="let producto of productosFiltrados">
+      <ion-item [class.bajo-stock]="producto.stock < producto.stockMinimo">
+        <ion-label>
+          <h2>{{ producto.nombre }}</h2>
+          <p>Código: {{ producto.codigo }}</p>
+          <p>Ubicación: {{ producto.ubicacion }}</p>
+          <p>
+            Stock: <strong>{{ producto.stock }} {{ producto.unidad }}</strong> | 
+            Mínimo: {{ producto.stockMinimo }}
+          </p>
+        </ion-label>
+        <ion-badge slot="end" [color]="producto.stock < producto.stockMinimo ? 'danger' : 'success'">
+          {{ producto.categoria }}
+        </ion-badge>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="warning" (click)="editarProducto(producto)">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="eliminarProducto(producto.id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- Empty state -->
+  <div class="empty-state" *ngIf="productosFiltrados.length === 0">
+    <ion-icon name="cube-outline"></ion-icon>
+    <p>No se encontraron productos</p>
+  </div>
+
+  <!-- Botón flotante -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="agregarProducto()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+

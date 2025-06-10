@@ -25,3 +25,45 @@
 #container a {
   text-decoration: none;
 }
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+ion-content {
+  --background: #ffffff;
+}
+
+ion-list {
+  --background: #ffffff;
+}
+
+ion-item {
+  --background: #ffffff;
+  color: #000000;
+  
+  &:hover {
+    --background: #e0e0e0; // gris claro para diferenciarlo
+    cursor: pointer;
+  }
+}
+
+ion-list-header {
+  --background: #ffffff;
+  background: #ffffff !important;
+  color: #000000 !important;
+  font-weight: bold;
+}
+.section-title {
+  font-size: 1.4rem;
+  color: #000000 !important;
+  font-weight: bold;
+}
+ion-list {
+  --background: #ffffff;
+  background: #ffffff !important;
+  color: #000000 !important;
+  font-weight: bold;
+}
