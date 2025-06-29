@@ -1,27 +1,48 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Iniciar Sesión</ion-title>
+    <ion-title class="ion-text-center">Iniciar Sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h2 class="brand-title">Maestranza Unidos S.A</h2>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="login-container">
 
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
-    <ion-item>
-      <ion-label position="stacked" class="input-label">Usuario</ion-label>
-      <ion-input formControlName="username" type="text" class="input-field"></ion-input>
-    </ion-item>
+    <!-- Imagen grande del logo -->
+    <div class="logo-grande">
+      <img src="assets/imgs/Maestranza-logo.png" alt="Maestranza Unidos S.A." />
+    </div>
 
-    <ion-item>
-      <ion-label position="stacked" class="input-label">Contraseña</ion-label>
-      <ion-input formControlName="password" type="password" class="input-field"></ion-input>
-    </ion-item>
+    <!-- Formulario -->
+    <form (ngSubmit)="login()" autocomplete="off" novalidate>
+      <ion-item>
+        <ion-label position="stacked">Usuario</ion-label>
+        <ion-input
+          [(ngModel)]="email"
+          name="email"
+          type="email"
+          inputmode="email"
+          required
+        ></ion-input>
+      </ion-item>
 
-    <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">ENTRAR</ion-button>
-  </form>
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input
+          [(ngModel)]="password"
+          name="password"
+          type="password"
+          required
+        ></ion-input>
+      </ion-item>
 
-  <ion-text color="danger" *ngIf="errorMessage">
-    <p class="ion-padding">{{ errorMessage }}</p>
-  </ion-text>
+      <ion-button expand="block" type="submit" class="login-button">
+        ENTRAR
+      </ion-button>
+    </form>
+
+    <!-- Mensaje de error -->
+    <ion-text color="danger" *ngIf="errorMessage">
+      <p class="ion-padding">{{ errorMessage }}</p>
+    </ion-text>
+  </div>
 </ion-content>

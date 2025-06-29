@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DatabaseService } from './services/database.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +7,11 @@ import { DatabaseService } from './services/database.service';
   standalone: false,
 })
 export class AppComponent {
-  constructor(private database: DatabaseService) {
+  constructor() {
     this.initializeApp();
   }
 
-  async initializeApp() {
-    try {
-      await this.database.initializeDatabase();
-      console.log('Database initialized successfully');
-    } catch (error) {
-      console.error('Database initialization failed', error);
-    }
+  initializeApp() {
+    console.log('✔ App inicializada correctamente');
   }
 }

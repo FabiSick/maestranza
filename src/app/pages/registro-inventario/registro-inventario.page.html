@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Registro de Inventario</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="actualizarInventario()">
@@ -10,6 +13,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+
   <!-- Filtros -->
   <ion-item>
     <ion-label position="stacked">Buscar</ion-label>
@@ -20,36 +24,36 @@
     <ion-label>Categoría</ion-label>
     <ion-select [(ngModel)]="categoriaFiltro" (ionChange)="filtrarProductos()" interface="popover">
       <ion-select-option value="">Todas</ion-select-option>
-      <ion-select-option value="Materia Prima">Materia Prima</ion-select-option>
-      <ion-select-option value="Herramientas">Herramientas</ion-select-option>
-      <ion-select-option value="Repuestos">Repuestos</ion-select-option>
-      <ion-select-option value="Producto Terminado">Producto Terminado</ion-select-option>
+      <ion-select-option value="herramienta">Herramienta</ion-select-option>
+      <ion-select-option value="repuesto">Repuesto</ion-select-option>
+      <ion-select-option value="insumo">Insumo</ion-select-option>
+      <ion-select-option value="lubricante">Lubricante</ion-select-option>
+      <ion-select-option value="material">Material</ion-select-option>
     </ion-select>
   </ion-item>
 
   <!-- Lista de productos -->
   <ion-list>
-    <ion-item-sliding *ngFor="let producto of productosFiltrados">
-      <ion-item [class.bajo-stock]="producto.stock < producto.stockMinimo">
+    <ion-item-sliding *ngFor="let producto of productosFiltrados; let i = index">
+      <ion-item *ngIf="producto">
         <ion-label>
           <h2>{{ producto.nombre }}</h2>
           <p>Código: {{ producto.codigo }}</p>
           <p>Ubicación: {{ producto.ubicacion }}</p>
           <p>
-            Stock: <strong>{{ producto.stock }} {{ producto.unidad }}</strong> | 
-            Mínimo: {{ producto.stockMinimo }}
+            Stock: <strong>{{ producto.cantidad }} {{ producto.unidad }}</strong>
           </p>
         </ion-label>
-        <ion-badge slot="end" [color]="producto.stock < producto.stockMinimo ? 'danger' : 'success'">
+        <ion-badge slot="end" color="medium">
           {{ producto.categoria }}
         </ion-badge>
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option color="warning" (click)="editarProducto(producto)">
+        <ion-item-option color="warning" (click)="editarProducto(producto, i)">
           <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="danger" (click)="eliminarProducto(producto.id)">
+        <ion-item-option color="danger" (click)="eliminarProducto(i)">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>
@@ -69,4 +73,3 @@
     </ion-fab-button>
   </ion-fab>
 </ion-content>
-

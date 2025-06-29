@@ -1,8 +1,5 @@
-<p>
-  <ion-list>
-    <ion-item *ngFor="let n of notificaciones">
-      <ion-label>{{ n.mensaje }}</ion-label>
-    </ion-item>
-  </ion-list>
-
-</p>
+<ion-list>
+  <ion-item button *ngFor="let n of notificaciones" (click)="seleccionar(n)">
+    <ion-label>{{ n.mensaje }}</ion-label>
+  </ion-item>
+</ion-list>

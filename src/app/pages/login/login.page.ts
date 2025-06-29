@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -8,34 +9,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
   standalone: false,
 })
-export class LoginPage implements OnInit {
-  loginForm: FormGroup;
-  errorMessage: string = '';
+export class LoginPage {
+  email = '';
+  password = '';
+  errorMessage = '';
+  apiUrl = 'http://localhost:3000/api/usuarios/login';
 
-  private users = [
-    { username: 'admin', password: 'admin123', role: 'admin' },
-    { username: 'operador', password: 'op123', role: 'operador' }
-  ];
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private alertCtrl: AlertController
+  ) {}
 
-  constructor(private fb: FormBuilder, private router: Router) {
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-  }
+  async login() {
+    try {
+      const user = await this.http.post<any>(this.apiUrl, {
+        email: this.email,
+        contraseña: this.password
+      }).toPromise();
 
-  ngOnInit() {}
+      localStorage.setItem('usuario', JSON.stringify(user));
 
-  onSubmit() {
-    const { username, password } = this.loginForm.value;
-    const foundUser = this.users.find(
-      (u) => u.username === username && u.password === password
-    );
+      const rol = user.rol?.toLowerCase() ?? '';
 
-    if (foundUser) {
-      localStorage.setItem('user', JSON.stringify(foundUser));
-      this.router.navigate(['/home']);
-    } else {
+      if (rol === 'admin') {
+        this.router.navigate(['/home']);
+      } else {
+        this.router.navigate([`/home-${rol}`]);
+      }
+
+    } catch {
       this.errorMessage = 'Credenciales incorrectas';
     }
   }

@@ -59,6 +59,35 @@ const routes: Routes = [
     path: 'notificaciones',
     loadChildren: () => import('./pages/notificaciones/notificaciones.module').then( m => m.NotificacionesPageModule)
   },
+	{
+	path: 'home-inventario',
+	loadChildren: () => import('./home/roles/home-inventario/home-inventario.module').then(m => m.HomeInventarioPageModule)
+	},
+	{
+	path: 'home-comprador',
+	loadChildren: () => import('./home/roles/home-comprador/home-comprador.module').then(m => m.HomeCompradorPageModule)
+	},
+	{
+	path: 'home-almacen',
+	loadChildren: () => import('./home/roles/home-almacen/home-almacen.module').then(m => m.HomeAlmacenPageModule)
+	},
+	{
+	path: 'home-produccion',
+	loadChildren: () => import('./home/roles/home-produccion/home-produccion.module').then(m => m.HomeProduccionPageModule)
+	},
+	{
+	path: 'home-auditor',
+	loadChildren: () => import('./home/roles/home-auditor/home-auditor.module').then(m => m.HomeAuditorPageModule)
+	},
+	{
+	path: 'home-proyectos',
+	loadChildren: () => import('./home/roles/home-proyectos/home-proyectos.module').then(m => m.HomeProyectosPageModule)
+	},
+	{
+	path: 'home-planta',
+	loadChildren: () => import('./home/roles/home-planta/home-planta.module').then(m => m.HomePlantaPageModule)
+	}
+
  
 ];
 

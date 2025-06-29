@@ -1,0 +1,54 @@
+/* Estilo general de toda la app */
+
+ion-app {
+  background-color: #000000;
+  color: #FFCD00;
+}
+
+ion-header, ion-toolbar {
+  background-color: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+  font-weight: bold;
+}
+
+ion-title {
+  color: var(--ion-color-primary-contrast);
+  font-size: 1.3rem;
+}
+
+ion-content {
+  --background: #000000;
+  color: #FFCD00;
+}
+
+/* Botones */
+ion-button {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+  font-weight: bold;
+}
+
+ion-button:hover {
+  --background: #e6b800;
+}
+
+/* Menu lateral */
+ion-menu {
+  background: #000000;
+  color: #FFCD00;
+}
+
+ion-menu ion-item {
+  --background: transparent;
+  color: #FFCD00;
+}
+
+ion-menu ion-item:hover {
+  background: #1a1a1a;
+}
+
+ion-toolbar ion-title {
+  color: var(--ion-color-primary-contrast); // En nuestro caso: negro o blanco
+  font-weight: bold;
+  font-size: 1.3rem;
+}

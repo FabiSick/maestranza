@@ -1,47 +1,57 @@
-.section-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #ffffff;
-}
-ion-content {
-  --background: #ffffff;
-}
-
-ion-list {
-  --background: #ffffff;
-}
-
-
-.brand-title {
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  color: #2c3e50;
-}
-
-.login-form {
+.login-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 2rem;
 }
 
+.logo-grande {
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 2rem;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ANCHO MAYOR PARA LOS INPUTS */
+form {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* BORDE MÁS VISIBLE Y ESTÉTICO */
 ion-item {
-  --background: #ffffff;
+  --background: #2a2a2a;
+  --color: #000000;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  padding: 1px;
+  border: 2px solid #f0c000;
+}
+
+/* LABEL MÁS DESTACADO Y ANCHO */
+ion-label {
+  display: block;
+  color: #f0c000;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+/* BOTÓN LOGIN */
+.login-button {
+  --background: #f0c000;
   --color: #000;
+  font-weight: bold;
+  margin-top: 1rem;
   border-radius: 8px;
-}
-
-.login-btn {
-  margin-top: 10px;
-}
-
-.input-label {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 0.2rem;
-}
-
-.input-field {
-  font-size: 1.1rem;
 }

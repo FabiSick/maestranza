@@ -2,19 +2,27 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SQLiteService } from './services/sqlite.service';
-import { DatabaseService } from './services/database.service';
+import { NotificacionesPopoverComponent } from './components/notificaciones-popover/notificaciones-popover.component';
+
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  declarations: [AppComponent,
+    NotificacionesPopoverComponent
+  ],
+
+  imports: [BrowserModule, 
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule 
+  ],
+  exports: [NotificacionesPopoverComponent
+    
+  ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    SQLiteService,
-    DatabaseService
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
