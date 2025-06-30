@@ -15,10 +15,11 @@ import alertasRoutes from './routes/alertas.js'; // Notificaciones de stock bajo
 const app = express();
 const PORT = 3000;
 
-import kitsRouter from './routes/kits.js';
-app.use('/api/kits', kitsRouter);
+app.use('/api/proveedores', proveedoresRoutes);
+app.use('/api/kits', kitsRouters);
 app.use(cors());
 app.use(express.json());
+
 
 // Asegura estructura inicial mínima
 await db.read();

@@ -1,0 +1,11 @@
+INSTRUCCIONES
+
+ABRIR 2 TERMINALES 
+BACKEND:
+cd backend
+node index.js
+
+Ionic:
+node index.js
+
+Usuarios:
