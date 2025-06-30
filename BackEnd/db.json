@@ -588,56 +588,66 @@
       "codigo": "PRD-1048",
       "fechaIngreso": "2025-06-25"
     },
-    		{
-			"nombre": "Plancha de Acero A36 10mm",
-			"descripcion": "Plancha metálica utilizada en estructuras y soportes",
-			"categoria": "material",
-			"unidad": "kg",
-			"cantidad": 500,
-			"precio": 950,
-			"proveedor": "MetalSur",
-			"ubicacion": "Patio",
-			"codigo": "MAT-1005",
-			"fechaIngreso": "2025-06-21"
-		},
-		{
-			"nombre": "Pintura Epóxica Gris Industrial",
-			"descripcion": "Revestimiento resistente para superficies metálicas",
-			"categoria": "material prima",
-			"unidad": "litro",
-			"cantidad": 90,
-			"precio": 15900,
-			"proveedor": "Pinturas Delta",
-			"ubicacion": "Bodega Químicos",
-			"codigo": "MAT-5021",
-			"fechaIngreso": "2025-06-26"
-		},
-		{
-			"nombre": "Tubo de acero galvanizado 2''",
-			"descripcion": "Tubo estructural para conducción de fluidos o estructuras",
-			"categoria": "material",
-			"unidad": "unidad",
-			"cantidad": 120,
-			"precio": 4800,
-			"proveedor": "MetalSur",
-			"ubicacion": "Patio",
-			"codigo": "MAT-1012",
-			"fechaIngreso": "2025-06-25"
-		},
-		{
-			"nombre": "Ángulo de acero 1x1/8''",
-			"descripcion": "Perfil estructural de acero para fabricación de piezas",
-			"categoria": "material",
-			"unidad": "barra",
-			"cantidad": 75,
-			"precio": 5700,
-			"proveedor": "MetalSur",
-			"ubicacion": "Patio",
-			"codigo": "MAT-1102",
-			"fechaIngreso": "2025-06-25"
-		}
+    {
+      "nombre": "Plancha de Acero A36 10mm",
+      "descripcion": "Plancha metálica utilizada en estructuras y soportes",
+      "categoria": "material",
+      "unidad": "kg",
+      "cantidad": 500,
+      "precio": 950,
+      "proveedor": "MetalSur",
+      "ubicacion": "Patio",
+      "codigo": "MAT-1005",
+      "fechaIngreso": "2025-06-21"
+    },
+    {
+      "nombre": "Pintura Epóxica Gris Industrial",
+      "descripcion": "Revestimiento resistente para superficies metálicas",
+      "categoria": "material",
+      "unidad": "litro",
+      "cantidad": 90,
+      "precio": 15900,
+      "proveedor": "Pinturas Delta",
+      "ubicacion": "Bodega Químicos",
+      "codigo": "MAT-5021",
+      "fechaIngreso": "2025-06-26"
+    },
+    {
+      "nombre": "Tubo de acero galvanizado 2''",
+      "descripcion": "Tubo estructural para conducción de fluidos o estructuras",
+      "categoria": "material",
+      "unidad": "unidad",
+      "cantidad": 120,
+      "precio": 4800,
+      "proveedor": "MetalSur",
+      "ubicacion": "Patio",
+      "codigo": "MAT-1012",
+      "fechaIngreso": "2025-06-25"
+    },
+    {
+      "nombre": "Ángulo de acero 1x1/8''",
+      "descripcion": "Perfil estructural de acero para fabricación de piezas",
+      "categoria": "material",
+      "unidad": "barra",
+      "cantidad": 75,
+      "precio": 5700,
+      "proveedor": "MetalSur",
+      "ubicacion": "Patio",
+      "codigo": "MAT-1102",
+      "fechaIngreso": "2025-06-25"
+    }
   ],
-  "movimientos": [],
+  "movimientos": [
+    {
+      "id": "uuid",
+      "tipo": "entrada",
+      "fecha": "2025-06-29T18:30:00Z",
+      "productoId": "ABC123",
+      "cantidad": 50,
+      "usuario": "admin@maestranza.cl",
+      "motivo": "Recepción de proveedor"
+    }
+  ],
   "historialPrecios": [],
   "lotes": [],
   "usuarios": [

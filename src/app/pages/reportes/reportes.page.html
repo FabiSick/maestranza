@@ -3,11 +3,29 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>reportes</ion-title>
+    <ion-title>Reportes de Inventario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content [fullscreen]="true">
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Resumen</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Total Productos:</strong> {{ totalProductos }}</p>
+      <p><strong>Productos Bajo Stock:</strong> {{ bajoStock }}</p>
+    </ion-card-content>
+  </ion-card>
 
+  <ion-list>
+    <ion-list-header>Categorías</ion-list-header>
+    <ion-item *ngFor="let cat of categorias | keyvalue">
+      <ion-label>{{ cat.key }}</ion-label>
+      <ion-badge color="medium">{{ cat.value }}</ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="exportarPDF()">Generar Reporte</ion-button>
 </ion-content>

@@ -67,3 +67,17 @@ body {
   font-family: 'Segoe UI', sans-serif;
   font-size: 16px;
 }
+
+
+ion-app, ion-content {
+  background-color: #000000;
+  color: #FFCD00;
+  background-image: url('/assets/imgs/fondo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+ion-content {
+  --background: transparent !important;
+}

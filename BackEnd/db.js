@@ -9,7 +9,7 @@ const defaultData = {
   productos: [],
   movimientos: [],
   historialPrecios: [],
-  lotes: [],
+  kits: [],
   usuarios: [],
   roles: [],
   proveedores: [],

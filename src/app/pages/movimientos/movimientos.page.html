@@ -3,32 +3,23 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>movimientos</ion-title>
+    <ion-title>Movimientos de Inventario</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content class="ion-padding">
+  <ion-list *ngIf="movimientos.length > 0">
+    <ion-item *ngFor="let m of movimientos">
+      <ion-label>
+        <h2>{{ m.tipo | titlecase }} - {{ m.cantidad }}</h2>
+        <p>Producto ID: {{ m.productoId }}<br>Usuario: {{ m.usuario }}<br>Fecha: {{ m.fecha | date:'short' }}</p>
+      </ion-label>
+      <ion-badge slot="end" color="medium">{{ m.motivo }}</ion-badge>
+    </ion-item>
+  </ion-list>
 
-<ion-content [fullscreen]="true">
-	<ion-item>
-	<ion-label position="stacked">Producto</ion-label>
-	<!--<ion-select </ion-select>[(ngModel)]="movimiento.productoId" interface="popover">
-		<ion-select-option *ngFor="let p of productos" [value]="p.id">{{ p.nombre }}</ion-select-option>
-	</ion-select>-->
-	</ion-item>
-	
-	<ion-item>
-	<ion-label position="stacked">Tipo</ion-label>
-	<!--<ion-select [(ngModel)]="movimiento.tipo">
-		<ion-select-option value="entrada">Entrada</ion-select-option>
-		<ion-select-option value="salida">Salida</ion-select-option>
-	</ion-select>-->
-	</ion-item>
-	
-	<ion-item>
-	<ion-label position="stacked">Cantidad</ion-label>
-	<!--<ion-input type="number" [(ngModel)]="movimiento.cantidad"></ion-input>-->
-	</ion-item>
-	
-	<!--<ion-button expand="block" (click)="guardarMovimiento()">Registrar</ion-button>-->
-
+  <div *ngIf="movimientos.length === 0" class="empty-state">
+    <ion-icon name="document-text-outline"></ion-icon>
+    <p>No hay movimientos registrados</p>
+  </div>
 </ion-content>
