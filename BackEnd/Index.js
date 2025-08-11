@@ -16,7 +16,7 @@ const app = express();
 const PORT = 3000;
 
 app.use('/api/proveedores', proveedoresRoutes);
-app.use('/api/kits', kitsRouters);
+//app.use('/api/kits', kitsRouters);
 app.use(cors());
 app.use(express.json());
 
